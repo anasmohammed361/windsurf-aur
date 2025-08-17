@@ -1,8 +1,8 @@
 # Maintainer: Mohammed Anas <anasmohammed361@gmail.com> 
 
 pkgver=1.12.2
-pkgbase=windsurf
-pkgname=windsurf-latest
+pkgbase=windsurf-latest
+pkgname=(windsurf{,-electron-latest})
 pkgrel=1
 arch=('x86_64')
 url="https://windsurf.com/"
