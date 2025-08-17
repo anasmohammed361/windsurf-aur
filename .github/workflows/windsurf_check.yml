@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       force:
-        description: 'Force build'
+        description: "Force build"
         required: false
-        default: 'false'
+        default: "false"
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: "0 */6 * * *"
 
 permissions:
   contents: write
@@ -73,14 +73,13 @@ jobs:
           SHA256SUM="${{ needs.check-version.outputs.sha256sum }}"
           sed -i "s|^sha256sums=('.*'\$|sha256sums=('$SHA256SUM'|" packages/windsurf/PKGBUILD
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "chore: update windsurf to version ${{ needs.check-version.outputs.version }}"
           title: "Update windsurf to version ${{ needs.check-version.outputs.version }}"
           body: |
             This PR updates the windsurf package to version ${{ needs.check-version.outputs.version }}.
-            
+
             This is an automated PR created by the version check workflow.
           branch: "update-windsurf-${{ needs.check-version.outputs.version }}"
           base: "main"
