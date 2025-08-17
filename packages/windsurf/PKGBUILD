@@ -2,7 +2,7 @@
 
 pkgver=1.12.2
 pkgbase=windsurf-latest
-pkgname=(windsurf{,-electron-latest})
+pkgname=(windsurf-latest windsurf-electron-latest-updated)
 pkgrel=1
 arch=('x86_64')
 url="https://windsurf.com/"
@@ -48,7 +48,7 @@ build() {
 	desktop-file-edit --set-key Hidden --set-value true usr/share/applications/windsurf-url-handler.desktop
 }
 
-package_windsurf(){
+package_windsurf-latest(){
 	pkgdesc="The new purpose-built IDE to harness magic"
 	cp -r --reflink=auto usr "${pkgdir}/usr"
 	_electron=electron$(rg -o -r '$1' '"electron": *"[^0-9]*([0-9]+)' usr/share/windsurf/resources/app/package.json)
@@ -58,7 +58,7 @@ package_windsurf(){
 	depends+=(${_electron}) # hidden from --printsrcinfo
 }
 
-package_windsurf-electron-latest(){
+package_windsurf-electron-latest-updated(){
 	pkgdesc="Windsurf Editor on latest stable electron"
 	mv usr "${pkgdir}/usr" # breaks --repackage
 	install -Dm755 run.sh "${pkgdir}/usr/bin/windsurf"
