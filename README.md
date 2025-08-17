@@ -4,9 +4,7 @@ This repository contains the PKGBUILDs and related files for AUR packages that I
 
 ## Packages
 
-- [postpilot-bin](./packages/postpilot-bin) - Binary package for PostPilot
 - [windsurf](./packages/windsurf) - Package for Windsurf IDE
-- [ztags-git](./packages/ztags-git) - Git package for ztags
 
 ## Repository Structure
 
