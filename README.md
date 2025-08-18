@@ -1,65 +1,22 @@
-# AUR Packages
+# AUR Package for Windsurf IDE
 
-This repository contains the PKGBUILDs and related files for AUR packages that I maintain. Each package is organized in its own directory and has automated workflows for version checking and AUR updates.
+This repository contains the PKGBUILD and related files for the Windsurf IDE AUR package. It is used to automate the version checking and AUR updates for the package.
 
-## Packages
+## Installation
 
-- [windsurf](./packages/windsurf) - Package for Windsurf IDE
+The package is available on the AUR as [windsurf-latest](https://aur.archlinux.org/packages/windsurf-latest).
 
-## Repository Structure
-
-```
-.
-├── README.md
-├── packages/           # Directory containing individual package directories
-│   ├── postpilot-bin/
-│   ├── windsurf/
-│   └── ztags-git/
-└── scripts/           # Helper scripts for maintenance and automation
+### Using yay
+```bash
+yay -S windsurf-latest
 ```
 
-## Automated Package Management
+### Using paru
+```bash
+paru -S windsurf-latest
+```
 
-Each package in this repository uses a two-pronged approach for automated updates:
 
-1. **Version Checking** (`[package]_check.yml`)
-   - Runs periodically to check for new upstream versions
-   - Creates pull requests when updates are available
-   - Builds and tests packages automatically
-   - Runs package validation using `namcap`
+## Credits
 
-2. **AUR Updates** (`[package]_update.yml`)
-   - Triggers when a PKGBUILD is updated in the main branch
-   - Automatically publishes updates to the AUR
-   - Uses SSH key authentication for secure deployment
-   - Updates package version and description
-
-### Package Directory Contents
-
-Each package directory contains:
-- `PKGBUILD` - The build script for the package
-- Additional files needed for the package (install scripts, patches, etc.)
-
-### GitHub Workflows
-
-Located in `.github/workflows/`:
-- `[package]_check.yml` - Automated version checking and testing
-- `[package]_update.yml` - AUR deployment workflow
-
-### Helper Scripts
-
-The `scripts/` directory contains various helper scripts:
-- Version checking scripts for different package types
-- Utility functions for package management
-- Common operations shared between packages
-
-## Contributing
-
-If you find any issues with these packages:
-1. Open an issue in this repository
-2. Comment on the AUR package page
-3. Submit a pull request with fixes
-
-## License
-
-This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This repository is forked from [watzon](https://github.com/watzon). Special thanks for the original work and foundation.
